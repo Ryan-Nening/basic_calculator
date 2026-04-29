@@ -27,4 +27,15 @@ class BaseCalculator:
             widget.bind("<Enter>", lambda e: widget.config(bg=hover_bg, fg=hover_fg))
             widget.bind("<Leave>", lambda e: widget.config(bg=normal_bg, fg=normal_fg))
 
+        def build_user_interface(self):
+            title_font = font.Font(family="Helvetica", size=16, weight="bold")
+            custom_font = font.Font(family="Helvetica", size=12)
+            status_font = font.Font(family="Courier", size=10, slant="italic")
+
+            self.title_label = tk.Label(self.main_window, text="⚡ NEON CALC PRO", font=title_font, bg="#0b0c10", fg="#66fcf1")
+            self.title_label.pack(pady=(20, 10))
+
+            self.status_label = tk.Label(self.main_window, text="Status: Waiting for inputs...", font=status_font, bg="#0b0c10", fg="#c5c6c7")
+            self.status_label.pack(pady=(0, 10))    
+
     
