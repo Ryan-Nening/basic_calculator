@@ -38,4 +38,12 @@ class BaseCalculator:
             self.status_label = tk.Label(self.main_window, text="Status: Waiting for inputs...", font=status_font, bg="#0b0c10", fg="#c5c6c7")
             self.status_label.pack(pady=(0, 10))    
 
-    
+            self.instruction1 = tk.Label(self.main_window, text="Enter First Number:", font=custom_font, bg="#0b0c10", fg="#ffffff")
+            self.instruction1.pack()
+            self.entry1 = tk.Entry(self.main_window, font=custom_font, justify="center", bg="#1f2833", fg="#66fcf1", insertbackground="white", relief="solid", highlightthickness=2, highlightcolor="#66fcf1", highlightbackground="#0b0c10")
+            self.entry1.pack(pady=5, ipady=5)
+
+            self.instruction2 = tk.Label(self.main_window, text="Enter Second Number:", font=custom_font, bg="#0b0c10", fg="#ffffff")
+            self.instruction2.pack()
+            self.entry2 = tk.Entry(self.main_window, font=custom_font, justify="center", bg="#1f2833", fg="#66fcf1", insertbackground="white", relief="solid", highlightthickness=2, highlightcolor="#66fcf1", highlightbackground="#0b0c10")
+            self.entry2.pack(pady=5, ipady=5)
