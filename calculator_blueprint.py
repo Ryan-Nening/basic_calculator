@@ -47,3 +47,24 @@ class BaseCalculator:
             self.instruction2.pack()
             self.entry2 = tk.Entry(self.main_window, font=custom_font, justify="center", bg="#1f2833", fg="#66fcf1", insertbackground="white", relief="solid", highlightthickness=2, highlightcolor="#66fcf1", highlightbackground="#0b0c10")
             self.entry2.pack(pady=5, ipady=5)
+
+            self.button_frame = tk.Frame(self.main_window, bg="#0b0c10")
+            self.button_frame.pack(pady=15)
+
+            btn_add = tk.Button(self.button_frame, text="Add (+)", bg="#45a29e", fg="white", activebackground="#66fcf1", activeforeground="#0b0c10", width=10, relief="flat", cursor="hand2", command=lambda: self.evaluate("+"))
+            btn_add.grid(row=0, column=0, padx=5, pady=5)
+            self.add_hover_animation(btn_add, "#66fcf1", "#0b0c10", "#45a29e", "white")
+
+            btn_sub = tk.Button(self.button_frame, text="Sub (-)", bg="#45a29e", fg="white", activebackground="#66fcf1", activeforeground="#0b0c10", width=10, relief="flat", cursor="hand2", command=lambda: self.evaluate("-"))
+            btn_sub.grid(row=0, column=1, padx=5, pady=5)
+            self.add_hover_animation(btn_sub, "#66fcf1", "#0b0c10", "#45a29e", "white")
+
+            btn_mult = tk.Button(self.button_frame, text="Mult (*)", bg="#45a29e", fg="white", activebackground="#66fcf1", activeforeground="#0b0c10", width=10, relief="flat", cursor="hand2", command=lambda: self.evaluate("*"))
+            btn_mult.grid(row=1, column=0, padx=5, pady=5)
+            self.add_hover_animation(btn_mult, "#66fcf1", "#0b0c10", "#45a29e", "white")
+
+            btn_div = tk.Button(self.button_frame, text="Div (/)", bg="#45a29e", fg="white", activebackground="#66fcf1", activeforeground="#0b0c10", width=10, relief="flat", cursor="hand2", command=lambda: self.evaluate("/"))
+            btn_div.grid(row=1, column=1, padx=5, pady=5)
+            self.add_hover_animation(btn_div, "#66fcf1", "#0b0c10", "#45a29e", "white")
+
+        
