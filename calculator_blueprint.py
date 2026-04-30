@@ -19,7 +19,7 @@ class BaseCalculator:
 class GuiCalculator(BaseCalculator):
     def __init__(self):
         self.main_window = tk.Tk()
-        self.main_window.title("App Calculator Pro")
+        self.main_window.title("Basic Calculator")
         self.main_window.geometry("400x560")
         self.main_window.configure(bg="#0b0c10")
 
@@ -76,10 +76,38 @@ class GuiCalculator(BaseCalculator):
         self.control_frame = tk.Frame(self.main_window, bg="#0b0c10")
         self.control_frame.pack(pady=10)
 
-        btn_reset = tk.Button(self.control_frame, text="Try Again", bg="#2c3e50", fg="white", activebackground="#45a29e", activeforeground="white", width=12, relief="flat", cursor="hand2", command=self.reset_calculator)
-        btn_reset.grid(row=0, column=0, padx=5)
-        self.addition_hover_animation(btn_reset, "#45a29e", "white", "#2c3e50", "white")
+        button_reset = tk.Button(self.control_frame, text="Try Again", bg="#2c3e50", fg="white", activebackground="#45a29e", activeforeground="white", width=12, relief="flat", cursor="hand2", command=self.reset_calculator)
+        button_reset.grid(row=0, column=0, padx=5)
+        self.addition_hover_animation(button_reset, "#45a29e", "white", "#2c3e50", "white")
 
-        btn_exit = tk.Button(self.control_frame, text="Exit", bg="#c0392b", fg="white", activebackground="#e74c3c", activeforeground="white", width=12, relief="flat", cursor="hand2", command=self.exit_program)
-        btn_exit.grid(row=0, column=1, padx=5)
-        self.addition_hover_animation(btn_exit, "#e74c3c", "white", "#c0392b", "white")
+        button_exit = tk.Button(self.control_frame, text="Exit", bg="#c0392b", fg="white", activebackground="#e74c3c", activeforeground="white", width=12, relief="flat", cursor="hand2", command=self.exit_program)
+        button_exit.grid(row=0, column=1, padx=5)
+        self.addition_hover_animation(button_exit, "#e74c3c", "white", "#c0392b", "white")
+
+    def evaluate(self, operation):
+        try:
+            number1 = float(self.entry1.get())
+            number2 = float(self.entry2.get())
+
+            if operation == "+":
+                result = self.add_numbers(number1, number2)
+            elif operation == "-":
+                result = self.subtract_numbers(number1, number2)
+            elif operation == "*":
+                result = self.multiply_numbers(number1, number2)
+            elif operation == "/":
+                result = self.divide_numbers(number1, number2)
+
+            self.result_label.config(text=f"Result: {result}")
+            self.status_label.config(text="Status: Calculation Success!", fg="#66fcf1") 
+            self.history_box.insert(0, f"> {number1} {operation} {number2} = {result}")
+
+        except ValueError:
+            self.status_label.config(text="Status: Invalid Input Error!", fg="#ff4c4c") 
+            messagebox.showerror("Input Error", "Please enter valid numeric values.")
+        except ZeroDivisionError as e:
+            self.status_label.config(text="Status: Math Error!", fg="#ff4c4c")
+            messagebox.showerror("Math Error", str(e))
+        except Exception:
+            self.status_label.config(text="Status: Unknown Error!", fg="#ff4c4c")
+            messagebox.showerror("Unknown Error", "Something went wrong.")
