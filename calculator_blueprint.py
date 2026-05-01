@@ -111,3 +111,10 @@ class GuiCalculator(BaseCalculator):
         except Exception:
             self.status_label.config(text="Status: Unknown Error!", fg="#ff4c4c")
             messagebox.showerror("Unknown Error", "Something went wrong.")
+
+    def reset_calculator(self):
+        self.entry1.delete(0, tk.END)
+        self.entry2.delete(0, tk.END)
+        self.result_label.config(text="Result: --")
+        self.status_label.config(text="Status: Cleared. Waiting for inputs...", fg="#c5c6c7")
+        self.entry1.focus()
