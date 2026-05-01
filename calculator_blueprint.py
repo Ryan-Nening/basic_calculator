@@ -122,3 +122,7 @@ class GuiCalculator(BaseCalculator):
     def exit_program(self):
         messagebox.showinfo("Goodbye", "Thank you!")
         self.main_window.destroy()
+
+def run_application(self):
+        self.build_user_interface()
+        self.main_window.mainloop()
