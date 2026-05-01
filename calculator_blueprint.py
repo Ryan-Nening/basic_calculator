@@ -118,3 +118,7 @@ class GuiCalculator(BaseCalculator):
         self.result_label.config(text="Result: --")
         self.status_label.config(text="Status: Cleared. Waiting for inputs...", fg="#c5c6c7")
         self.entry1.focus()
+
+    def exit_program(self):
+        messagebox.showinfo("Goodbye", "Thank you!")
+        self.main_window.destroy()
